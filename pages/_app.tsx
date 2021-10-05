@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import Head from "next/head";
 import 'bootstrap/dist/css/bootstrap.css'
 import type { AppProps } from 'next/app'
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -11,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <Component {...pageProps} />
-
     </>
   );
 }

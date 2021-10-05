@@ -40,10 +40,10 @@ const SimpleCardForm = ({ handlePayment }: any) => {
   if (paymentSuccess) {
     Swal.fire(
       'Great!',
-      'Your order has been saved!',
+      'You successfully subscribed!',
       'success'
     )
-    router.push('/')
+    router.push('/SubscriberList')
   }
 
   return (

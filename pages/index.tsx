@@ -1,23 +1,36 @@
+/* eslint-disable @next/next/link-passhref */
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+
+const subscribes = [
+  {
+    id: 1,
+    name: 'Cycle 1'
+  },
+  {
+    id: 2,
+    name: 'Cycle 2'
+  }
+]
 
 const Home: NextPage = () => {
-  const router = useRouter()
   return (
     <div className="container mt-5 pt-5">
       <div className="row">
-        <div className="col-md-5 m-4">
-          <div className="d-flex flex-column align-content-around">
-            <h2 className="border border-dark p-5">Cycle 1</h2>
-            <button onClick={() => router.push('/checkout')} className="btn btn-success">Subscribe</button>
-          </div>
-        </div>
-        <div className="col-md-5 m-4">
-          <div className="d-flex flex-column align-content-around">
-            <h2 className="border border-dark p-5">Cycle 2</h2>
-            <button onClick={() => router.push('/checkout')} className="btn btn-success">Subscribe</button>
-          </div>
-        </div>
+        {
+          subscribes.map(subscribe => (
+            // eslint-disable-next-line @next/next/link-passhref
+            // eslint-disable-next-line react/jsx-key
+            <div className="col-md-5 m-4">
+              <div className="d-flex flex-column align-content-around">
+                <h2 className="border border-dark p-5">{subscribe.name}</h2>
+                <Link href={`/` + subscribe.id} key={subscribe.id}>
+                  <button className="btn btn-success">Subscribe</button>
+                </Link>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   )
