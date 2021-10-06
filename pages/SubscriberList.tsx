@@ -20,7 +20,7 @@ const SubscriberList = ({ subscribers }: { subscribers: any }) => {
                             <th scope="col">Subscription</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">phone</th>
+                            <th scope="col">Phone No.</th>
                             <th scope="col">Address</th>
                         </tr>
                     </thead>
@@ -29,7 +29,7 @@ const SubscriberList = ({ subscribers }: { subscribers: any }) => {
                             // eslint-disable-next-line react/jsx-key
                             <tbody>
                                 <tr>
-                                    <td>{subscriber.id.id}</td>
+                                    <td>Cycle {subscriber.id.id}</td>
                                     <td>{subscriber.checkout.name}</td>
                                     <td>{subscriber.checkout.email}</td>
                                     <td>{subscriber.checkout.phone}</td>
