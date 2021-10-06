@@ -16,7 +16,7 @@ const Checkout = (id: string) => {
             paymentId,
             checkout: data
         }
-        fetch('http://localhost:5000/addSubscriber', {
+        fetch('https://damp-basin-57545.herokuapp.com/addSubscriber', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const Checkout = (id: string) => {
 
                         <div className="col-12 pt-2">
                             <label className="form-label">Email</label>
-                            <input type="email" {...register('email', { required: true })} className="form-control" id="email" />
+                            <input type="email" {...register('email', { required: true })} className="form-control" />
                             <div className="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
@@ -54,13 +54,13 @@ const Checkout = (id: string) => {
 
                         <div className="col-12 pt-2">
                             <label className="form-label">Phone Number</label>
-                            < input type="tel" pattern="[0-9]{10}" {...register('phone', { required: true })} className="form-control" required />
+                            < input type="tel" pattern="^\d{10}$" {...register('phone', { required: true })} className="form-control" placeholder="Enter 10 Digit Phone Number. Ex: 1718556127" required />
                             {errors.phone && <span className="error">Phone is required</span>}
                         </div>
 
                         <div className="col-12 pt-2">
                             <label className="form-label">Address</label>
-                            <input type="text" {...register('address', { required: true })} className="form-control" id="address" required />
+                            <input type="text" {...register('address', { required: true })} className="form-control" required />
                             <div className="invalid-feedback">
                                 Please enter your address.
                             </div>

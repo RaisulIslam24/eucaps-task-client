@@ -3,7 +3,7 @@ import { ReactChild, ReactFragment, ReactPortal } from "react";
 import Link from 'next/link';
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:5000/subscribers');
+    const res = await fetch('https://damp-basin-57545.herokuapp.com/subscribers');
     const data = await res.json();
     return {
         props: { subscribers: data }
