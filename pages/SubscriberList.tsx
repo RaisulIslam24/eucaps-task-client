@@ -1,16 +1,19 @@
 /* eslint-disable @next/next/link-passhref */
 import { ReactChild, ReactFragment, ReactPortal } from "react";
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export const getStaticProps = async () => {
-    const res = await fetch('https://damp-basin-57545.herokuapp.com/subscribers');
-    const data = await res.json();
-    return {
-        props: { subscribers: data }
-    }
-}
+const SubscriberList = () => {
+    const [subscribers, setSubscribers] = useState([]);
 
-const SubscriberList = ({ subscribers }: { subscribers: any }) => {
+    useEffect(() => {
+
+        fetch('https://damp-basin-57545.herokuapp.com/subscribers')
+            .then(res => res.json())
+            .then(data => setSubscribers(data))
+
+    }, []);
+
     return (
         <div className="container">
             <div className="p-5 bg-white">
